@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Aventura Xtreme: Aigua",
+    "pictTrip": "https://www.mintur.gub.uy/media/k2/items/cache/ba0166c7a50d96eb270097f3f911e08a_XL.jpg",
+    "locationOrigin": {
+      "name": "Villa Serrana",
+      "coords": "-34.3201781,-55.0072128"
+    },
+    "locationDestination": {
+      "name": "Aigua",
+      "coords": "-34.2055006,-54.7801497"
+    },
+    "datetime": "2018-02-02T06:00:00Z",
+    "timeDuration": 72,
+    "breakpoints": [
+      "-34.252827,-54.9492393",
+      "-34.2306185,-54.9059806",
+      "-34.212379,-54.8768839",
+      "-34.2094688,-54.8381742"
+    ],
+    "members": [
+      {
+        "name": "David Rivero",
+        "description": "Practicioner of extreme adventures",
+        "profile": "/user/193912"
+      },
+      {
+        "name": "Pedro Menendez",
+        "description": "Extreme sports and landscape explorer",
+        "profile": "/user/121931"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Trip ABC",
+    "pictTrip": "https://www.mintur.gub.uy/media/k2/items/cache/ba0166c7a50d96eb270097f3f911e08a_XL.jpg",
+    "locationOrigin": {
+      "name": "Villa Serrana",
+      "coords": "-34.3201781,-55.0072128"
+    },
+    "locationDestination": {
+      "name": "Aigua",
+      "coords": "-34.2055006,-54.7801497"
+    },
+    "datetime": "2018-02-02T06:00:00Z",
+    "timeDuration": 72,
+    "breakpoints": [
+      "-34.252827,-54.9492393",
+      "-34.2306185,-54.9059806",
+      "-34.212379,-54.8768839",
+      "-34.2094688,-54.8381742"
+    ],
+    "members": [
+      {
+        "name": "David Rivero",
+        "description": "Practicioner of extreme adventures",
+        "profile": "/user/193912"
+      },
+      {
+        "name": "Pedro Menendez",
+        "description": "Extreme sports and landscape explorer",
+        "profile": "/user/121931"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Zapadores de Acero, 3ra edicion",
+    "pictTrip": "https://www.mintur.gub.uy/media/k2/items/cache/ba0166c7a50d96eb270097f3f911e08a_XL.jpg",
+    "locationOrigin": {
+      "name": "Villa Serrana",
+      "coords": "-34.3201781,-55.0072128"
+    },
+    "locationDestination": {
+      "name": "Aigua",
+      "coords": "-34.2055006,-54.7801497"
+    },
+    "datetime": "2018-02-02T06:00:00Z",
+    "timeDuration": 72,
+    "breakpoints": [
+      "-34.252827,-54.9492393",
+      "-34.2306185,-54.9059806",
+      "-34.212379,-54.8768839",
+      "-34.2094688,-54.8381742"
+    ],
+    "members": [
+      {
+        "name": "David Rivero",
+        "description": "Practicioner of extreme adventures",
+        "profile": "/user/193912"
+      },
+      {
+        "name": "Pedro Menendez",
+        "description": "Extreme sports and landscape explorer",
+        "profile": "/user/121931"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "La ruta de Villa Serrana",
+    "pictTrip": "https://www.mintur.gub.uy/media/k2/items/cache/ba0166c7a50d96eb270097f3f911e08a_XL.jpg",
+    "locationOrigin": {
+      "name": "Villa Serrana",
+      "coords": "-34.3201781,-55.0072128"
+    },
+    "locationDestination": {
+      "name": "Aigua",
+      "coords": "-34.2055006,-54.7801497"
+    },
+    "datetime": "2018-02-02T06:00:00Z",
+    "timeDuration": 72,
+    "breakpoints": [
+      "-34.252827,-54.9492393",
+      "-34.2306185,-54.9059806",
+      "-34.212379,-54.8768839",
+      "-34.2094688,-54.8381742"
+    ],
+    "members": [
+      {
+        "name": "David Rivero",
+        "description": "Practicioner of extreme adventures",
+        "profile": "/user/193912"
+      },
+      {
+        "name": "Pedro Menendez",
+        "description": "Extreme sports and landscape explorer",
+        "profile": "/user/121931"
+      }
+    ]
+  }
+]

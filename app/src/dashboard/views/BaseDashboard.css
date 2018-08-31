@@ -1,0 +1,61 @@
+.dashboard-view {
+  height: 100vh;
+  background-color: rgba(192, 216, 120, 0.15);
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard-view {
+    padding: 0 15px;
+  }
+}
+
+.dashboard-links {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(195, 68, 59);
+  cursor: pointer;
+}
+
+.dashboard-links .dashboard-link-ft {
+  text-decoration: none;
+}
+
+.dashboard-link-trip, .dashboard-link-map {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 60px;
+}
+
+.dashboard-link-trip img, .dashboard-link-map img {
+  width: 100%;
+}
+
+.add-tour-icon {
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  z-index: 1000;
+  background-color: #1973FF;
+  padding: 10px 10px 7px 10px;
+  border-radius: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.add-tour-icon:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.add-tour-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
