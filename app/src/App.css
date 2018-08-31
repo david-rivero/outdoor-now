@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.app-header {
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(92, 121, 103);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  z-index: 100;
+}
+
+.app-header img {
+  width: 48px;
+}
