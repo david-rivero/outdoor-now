@@ -1,0 +1,26 @@
+.compose-input {
+  display: flex;
+  max-width: 300px;
+  margin: 5px 0;
+}
+
+.compose-input input {
+  border-radius: 4px 0 0 4px;
+  border: none;
+  padding: 0 10px;
+}
+
+.compose-input input, .compose-input input:hover {
+  outline: none;
+}
+
+.compose-input-icon {
+  width: 24px;
+  background: #a8c060;
+  border-radius: 0px 4px 4px 0px;
+  padding: 5px;    
+}
+
+.compose-input-icon img {
+  width: 100%;
+}
