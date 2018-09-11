@@ -4,37 +4,31 @@ import streetMap from '../../shared/icons/street-map.svg';
 import routeMap from '../../shared/icons/route.svg';
 import addIcon from '../../shared/icons/plus.svg';
 
-import trips from '../mocks/trips.json';
+import trips from '../../shared/mocks/trips.json';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './BaseDashboard.css';
-import TripDashBoard from './TripDashboard';
-import MapView from '../components/map-view/MapView';
+import TripDashBoard from './trip-dashboard/TripDashboard';
+import MapDashboard from './map-dashboard/MapDashboard';
 
-export default function BaseDashboard () {
-  const mapsSrc = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places";
-
+export default function BaseDashboard (props) {
   return (
     <div className="dashboard-base">
       <Router>
         <div className="dashboard-parent">
           <div className="dashboard-view">
             <Switch>
-              <Route path="/dashboard/trips" render={(routeProps) => (<TripDashBoard trips={trips}/>)} />
-              <Route path="/dashboard/map" render={(routeProps) => (
-                <MapView googleMapURL={mapsSrc} 
-                        loadingElement={<div style={{ height: `calc(100vh - 100px)` }} />}
-                        containerElement={<div style={{ height: `100%` }} />}
-                        mapElement={<div style={{ height: `100%` }} />}/>
-              )} />
+              <Route path={`${props.match.path}/trips`} render={(routeProps) => (<TripDashBoard trips={trips}/>)} />
+              <Route path={`${props.match.path}/map`} component={ MapDashboard } />
+              <Route render={(routeProps) => (<TripDashBoard trips={trips}/>)} />
             </Switch>
             <div className="add-tour-icon">
-              <Link to="/trips/create">
+              <a href="/trips/create">
                 <svg viewBox="0 0 32 32">
                   <use xlinkHref={`${addIcon}#plusSign`}></use>
                 </svg>
-              </Link>
+              </a>
             </div>
           </div>
           <div className="dashboard-links">

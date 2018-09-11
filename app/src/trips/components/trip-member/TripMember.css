@@ -1,0 +1,50 @@
+.trip-member {
+  display: flex;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 0 5px;
+  width: 33.33vw;
+  margin: auto;
+  position: relative;
+}
+
+.trip-remove-member {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+}
+
+.trip-remove-member img {
+  width: 100%;
+}
+
+.trip-member .trip-member-photo {
+  width: 65px;
+  margin: 10px;
+}
+
+.trip-member .trip-member-photo img {
+  width: 100%;
+}
+
+.trip-member .trip-member-info .trip-member-name {
+  font-size: 18px;
+}
+
+.trip-member .trip-member-info .trip-member-name p {
+  margin-bottom: 14px;
+}
+
+.trip-member .trip-member-info .trip-member-desc {
+  font-size: 12px;
+}
+
+.trip-member .trip-member-info .trip-member-desc p {
+  margin-top: 5px;
+}

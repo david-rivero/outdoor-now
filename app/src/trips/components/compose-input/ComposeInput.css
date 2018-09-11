@@ -1,13 +1,14 @@
 .compose-input {
   display: flex;
-  max-width: 300px;
-  margin: 5px 0;
+  margin: 10px 0;
+  width: 100%;
 }
 
 .compose-input input {
   border-radius: 4px 0 0 4px;
   border: none;
   padding: 0 10px;
+  width: 100%;
 }
 
 .compose-input input, .compose-input input:hover {

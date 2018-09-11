@@ -1,0 +1,28 @@
+.trip-info-container {
+  margin-top: 120px;
+}
+
+.trip-info-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trip-info-logo img, .trip-info-icon img {
+  width: 100%;
+}
+
+.trip-info-logo {
+  width: 150px;
+}
+
+.trip-info-icon {
+  width: 24px;
+}
+
+.trip-info-detail .trip-info-item {
+  display: flex;
+  align-items: center;
+  max-width: 250px;
+  margin: auto;
+}

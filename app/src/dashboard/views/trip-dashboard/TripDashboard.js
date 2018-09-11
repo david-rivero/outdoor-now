@@ -1,6 +1,7 @@
 import React from 'react';
-import TripListItem from '../components/trip-list-item/TripListItem';
+import { Link } from 'react-router-dom';
 
+import TripListItem from '../../components/trip-list-item/TripListItem';
 
 export default function TripDashBoard (props) {
   let tripDashboardStyle = {
@@ -11,7 +12,11 @@ export default function TripDashBoard (props) {
     <div className="trip-dashboard" style={tripDashboardStyle}>
       {
         props.trips.map((trip) => {
-          return (<TripListItem trip={trip} key={trip.id}/>);
+          return (
+            <Link to={`/trips/info/${trip.id}`} key={trip.id}>
+              <TripListItem trip={trip}/>
+            </Link>
+          );
         })
       }
     </div>

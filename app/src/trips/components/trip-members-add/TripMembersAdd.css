@@ -1,0 +1,30 @@
+.trip-members-search {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  max-width: 250px;
+  margin: auto;
+}
+
+.trip-members-search input {
+  border: none;
+  padding-left: 10px;
+}
+
+.trip-members-search-icon {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.trip-members-search-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.trip-members-search-result {
+  max-width: 250px;
+  margin: 10px auto 0 auto;
+}

@@ -12,6 +12,8 @@
   cursor: pointer;
   height: 15vh;
   overflow: hidden;
+  text-decoration: none;
+  color: black;
 }
 
 @media screen and (max-width: 480px) {
@@ -43,6 +45,7 @@
 .trip-item-info .trip-item-name p {
   margin: 0 0 10px 0;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .trip-item-info .trip-item-locations, .trip-item-info .trip-item-members {

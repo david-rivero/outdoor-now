@@ -1,10 +1,6 @@
 import React from 'react';
-import moment from 'moment';
+import { connect } from 'react-redux';
 import './TripListItem.css';
-
-function parseDate (date) {
-  return moment(date).format('MMMM Do YYYY, h:mm:ss a');
-}
 
 export default function TripListItem (props) {
   let tripItemBk = {

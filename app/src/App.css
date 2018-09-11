@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .app-header {
@@ -15,4 +16,9 @@
 
 .app-header img {
   width: 48px;
+}
+
+.app-body {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
