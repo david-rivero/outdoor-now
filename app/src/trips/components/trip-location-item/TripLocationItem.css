@@ -1,0 +1,23 @@
+.trip-location-item {
+  max-width: 30vw;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 4px;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.trip-location-remove {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+.trip-location-remove img {
+  width: 100%;
+}
