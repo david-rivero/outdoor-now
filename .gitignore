@@ -22,3 +22,5 @@ app/yarn-debug.log*
 app/yarn-error.log*
 
 NOTES.md
+
+app/src/shared/config.js
