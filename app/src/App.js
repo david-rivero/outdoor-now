@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import BaseDashboard from './dashboard/views/BaseDashboard';
 import BaseTrip from './trips/views/BaseTrip';
+import SocialLogin from './auth/views/SocialLogin';
 
 import logo from './shared/icons/outdoor-now.svg';
 
