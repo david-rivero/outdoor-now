@@ -1,5 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import instanciateTrip from '../../actions/trip/instanciateTrip';
 
 import TripForm from '../../components/trip-form/TripForm';
 import TripMembersAdd from '../../components/trip-members-add/TripMembersAdd';
@@ -9,32 +13,26 @@ import './CreateTrip.css';
 
 import logo from '../../../shared/icons/outdoor-now.svg';
 
-export default class CreateTrip extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      trip: {
-        members: []
-      }
-    };
+class CreateTrip extends React.Component {
+  componentWillMount () {
+    this.props.instanciateTrip();
   }
 
   render () {
     let locationsSetup = {
       origin: {
         locationMode: 'SINGLE_LOCATION',
-        propertyKey: 'origin'
+        propertyKey: 'locationOrigin'
       },
       destination: {
         locationMode: 'SINGLE_LOCATION',
-        propertyKey: 'destination'
+        propertyKey: 'locationDestination'
       },
       checkpoints: {
         locationMode: 'MULTIPLE_LOCATIONS',
         propertyKey: 'checkpoints'
       }
     };
-
 
     return (
       <div className="create-trip-view">
@@ -45,19 +43,26 @@ export default class CreateTrip extends React.Component {
         <div className="create-trip-form-container">
           <Router>
             <Switch>
-              <Route path={`${this.props.match.path}/origin`} render={(routeProps) => (
-                <TripLocationSetup mode={locationsSetup.origin.locationMode} propertyKey={locationsSetup.origin.propertyKey} trip={this.state.trip} />
+              <Route path={`${this.props.match.path}/origin`} render={(_) => (
+                <TripLocationSetup mode={locationsSetup.origin.locationMode} 
+                                   propertyKey={locationsSetup.origin.propertyKey}
+                                   trip={this.props.trip} />
               )} />
-              <Route path={`${this.props.match.path}/destination`} render={(routeProps) => (
-                <TripLocationSetup mode={locationsSetup.destination.locationMode} propertyKey={locationsSetup.destination.propertyKey} trip={this.state.trip} />
+              <Route path={`${this.props.match.path}/destination`} render={(_) => (
+                <TripLocationSetup mode={locationsSetup.destination.locationMode} 
+                                   propertyKey={locationsSetup.destination.propertyKey} 
+                                   trip={this.props.trip} />
               )} />
-              <Route path={`${this.props.match.path}/checkpoints`} render={(routeProps) => (
-                <TripLocationSetup mode={locationsSetup.checkpoints.locationMode} propertyKey={locationsSetup.checkpoints.propertyKey} trip={this.state.trip} />
+              <Route path={`${this.props.match.path}/checkpoints`} render={(_) => (
+                <TripLocationSetup mode={locationsSetup.checkpoints.locationMode} 
+                                   propertyKey={locationsSetup.checkpoints.propertyKey} 
+                                   trip={this.props.trip} />
               )} />
-              <Route path={`${this.props.match.path}/members`} render={(routeProps) => (
-                <TripMembersAdd members={this.state.trip.members} />
+              <Route path={`${this.props.match.path}/members`} render={(_) => (
+                <TripMembersAdd members={this.props.trip.members}
+                                trip={this.props.trip} />
               )} />
-              <Route component={TripForm} />
+              <Route render={(_) => <TripForm trip={this.props.trip} />} />
             </Switch>
           </Router>
         </div>
@@ -65,3 +70,17 @@ export default class CreateTrip extends React.Component {
     );
   }
 }
+
+function mapDispatchToProps (dispatch) {
+  return {
+    instanciateTrip: bindActionCreators(instanciateTrip, dispatch)
+  }
+}
+
+function mapStateToProps (state) {
+  return {
+    trip: state.trips.currentTrip
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateTrip);

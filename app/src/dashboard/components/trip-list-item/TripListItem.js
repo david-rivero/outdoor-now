@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import parseDate from '../../../shared/behavior/dateParser';
+
 import './TripListItem.css';
 
 export default function TripListItem (props) {

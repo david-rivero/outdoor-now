@@ -7,7 +7,7 @@ import './ComposeInput.css';
 export default function ComposeInput (props) {
   return (
     <div className="compose-input">
-      <input type="text" name={props.name} disabled="disabled" value={props.inputValue} />
+      <input type="text" name={props.name} disabled="disabled" defaultValue={props.inputValue} />
       <div className="compose-input-icon">
         <Link to={props.linkTo}>
           <img src={props.src} alt={props.name} />

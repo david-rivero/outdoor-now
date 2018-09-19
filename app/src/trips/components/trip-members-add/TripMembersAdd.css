@@ -28,3 +28,15 @@
   max-width: 250px;
   margin: 10px auto 0 auto;
 }
+
+.btn {
+  border: 0;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background-color: #B20700;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
