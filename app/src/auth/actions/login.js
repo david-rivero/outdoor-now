@@ -1,5 +1,8 @@
-export default function login () {
+export default function login (user) {
   return {
-    type: 'LOGIN'
+    type: 'LOGIN',
+    payload: {
+      user: user
+    }
   }
 }

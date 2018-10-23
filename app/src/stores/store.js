@@ -23,6 +23,11 @@ let initialState = {
   displayMenuMapOnSetLocation: false,
   profiles: {
     currentUser: {},
+    loginStatus: {
+      successRedirect: false,
+      failureRedirect: false,
+      clientLogin: ""
+    },
     members: [],
     membersFound: [...profiles], 
     displayResult: false,

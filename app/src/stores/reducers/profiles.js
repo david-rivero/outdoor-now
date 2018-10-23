@@ -1,5 +1,10 @@
 let initialState = {
   currentUser: {},
+  loginStatus: {
+    successRedirect: false,
+    failureRedirect: false,
+    clientLogin: ""
+  },
   members: [],
   membersFound: [], 
   displayResult: false,
@@ -11,6 +16,8 @@ export default function profiles (state=initialState, action) {
   switch (action.type) {
     case 'CHECK_MEMBERS_SAVED':
       return {...copyState, saveCheck: action.payload.checked};
+    case 'UPDATE_LOGIN_STATUS':
+      return {...copyState, loginStatus: action.payload.loginStatus}
     case 'LOGIN':
       return {...copyState, currentUser: action.payload.user};
     case 'HIDE_MEMBER_RESULTS':

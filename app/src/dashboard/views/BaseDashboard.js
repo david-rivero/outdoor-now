@@ -1,4 +1,6 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import streetMap from '../../shared/icons/street-map.svg';
 import routeMap from '../../shared/icons/route.svg';
@@ -50,3 +52,17 @@ export default class BaseDashboard extends React.Component {
     );
   }
 }
+
+function mapDispatchToProps (dispatch) {
+  return {
+    tripChecked: bindActionCreators(tripChecked, dispatch)
+  }
+}
+
+function mapStateToProps (state) {
+  return {
+    tripCheck: state.trips.tripCheck
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BaseDashboard);
