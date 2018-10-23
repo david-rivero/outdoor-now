@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './BaseDashboard.css';
 import TripDashBoard from './trip-dashboard/TripDashboard';
 import MapDashboard from './map-dashboard/MapDashboard';
+import AuthProtectedView from '../../shared/components/auth-protected-view/AuthProtectedView';
+
 
 export default class BaseDashboard extends React.Component {
   render () {
@@ -48,6 +50,7 @@ export default class BaseDashboard extends React.Component {
             </div>
           </div>
         </Router>
+          <AuthProtectedView></AuthProtectedView>
       </div>
     );
   }

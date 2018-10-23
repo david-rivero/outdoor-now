@@ -120,7 +120,7 @@ class TripForm extends React.Component {
           </div>
         }
         {
-          this.props.tripChecked &&
+          this.props.tripCheck &&
           <Redirect to="/dashboard/trips"></Redirect>
         }
       </form>
