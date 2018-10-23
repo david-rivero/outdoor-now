@@ -6,32 +6,37 @@ import streetMap from '../../shared/icons/street-map.svg';
 import routeMap from '../../shared/icons/route.svg';
 import addIcon from '../../shared/icons/plus.svg';
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
+
+import tripChecked from '../../trips/actions/trip/tripChecked';
 
 import './BaseDashboard.css';
 import TripDashBoard from './trip-dashboard/TripDashboard';
 import MapDashboard from './map-dashboard/MapDashboard';
 import AuthProtectedView from '../../shared/components/auth-protected-view/AuthProtectedView';
 
+class BaseDashboard extends React.Component {
+  componentDidMount () {
+    if (this.props.tripCheck) {
+      this.props.tripChecked(false);
+    }
+  }
 
-export default class BaseDashboard extends React.Component {
   render () {
     return (
       <div className="dashboard-base">
-        <Router>
           <div className="dashboard-parent">
             <div className="dashboard-view">
               <Switch>
-                <Route path={`${this.props.match.path}/trips`} render={(routeProps) => (<TripDashBoard />)} />
+                <Route path={`${this.props.match.path}/trips`} render={(_) => (<TripDashBoard />)} />
                 <Route path={`${this.props.match.path}/map`} component={ MapDashboard } />
-                <Route render={(routeProps) => (<TripDashBoard />)} />
               </Switch>
               <div className="add-tour-icon">
-                <a href="/trips/create">
+                <Link to="/trips/create">
                   <svg viewBox="0 0 32 32">
                     <use xlinkHref={`${addIcon}#plusSign`}></use>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="dashboard-links">
@@ -49,7 +54,6 @@ export default class BaseDashboard extends React.Component {
               </Link>
             </div>
           </div>
-        </Router>
           <AuthProtectedView></AuthProtectedView>
       </div>
     );

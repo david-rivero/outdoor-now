@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -41,30 +41,28 @@ class CreateTrip extends React.Component {
           <figcaption>New Trip</figcaption>
         </figure>
         <div className="create-trip-form-container">
-          <Router>
-            <Switch>
-              <Route path={`${this.props.match.path}/origin`} render={(_) => (
-                <TripLocationSetup mode={locationsSetup.origin.locationMode} 
-                                   propertyKey={locationsSetup.origin.propertyKey}
-                                   trip={this.props.trip} />
-              )} />
-              <Route path={`${this.props.match.path}/destination`} render={(_) => (
-                <TripLocationSetup mode={locationsSetup.destination.locationMode} 
-                                   propertyKey={locationsSetup.destination.propertyKey} 
-                                   trip={this.props.trip} />
-              )} />
-              <Route path={`${this.props.match.path}/checkpoints`} render={(_) => (
-                <TripLocationSetup mode={locationsSetup.checkpoints.locationMode} 
-                                   propertyKey={locationsSetup.checkpoints.propertyKey} 
-                                   trip={this.props.trip} />
-              )} />
-              <Route path={`${this.props.match.path}/members`} render={(_) => (
-                <TripMembersAdd members={this.props.trip.members}
-                                trip={this.props.trip} />
-              )} />
-              <Route render={(_) => <TripForm trip={this.props.trip} />} />
-            </Switch>
-          </Router>
+          <Switch>
+            <Route path="/trips/create/origin" render={(_) => (
+              <TripLocationSetup mode={locationsSetup.origin.locationMode}
+                                  propertyKey={locationsSetup.origin.propertyKey}
+                                  trip={this.props.trip} />
+            )} />
+            <Route path="/trips/create/destination" render={(_) => (
+              <TripLocationSetup mode={locationsSetup.destination.locationMode}
+                                  propertyKey={locationsSetup.destination.propertyKey}
+                                  trip={this.props.trip} />
+            )} />
+            <Route path="/trips/create/checkpoints" render={(_) => (
+              <TripLocationSetup mode={locationsSetup.checkpoints.locationMode}
+                                  propertyKey={locationsSetup.checkpoints.propertyKey}
+                                  trip={this.props.trip} />
+            )} />
+            <Route path="/trips/create/members" render={(_) => (
+              <TripMembersAdd members={this.props.trip.members}
+                              trip={this.props.trip} />
+            )} />
+            <Route render={(_) => <TripForm trip={this.props.trip} />} />
+          </Switch>
         </div>
       </div>
     );

@@ -22,10 +22,9 @@ class App extends Component {
           <Provider store={outdoorAppStore}>
             <Router>
               <Switch>
-                <Route path="/dashboard" component={BaseDashboard}/>
+                <Route exact path="/login" component={SocialLogin} />
                 <Route path="/trips" component={BaseTrip} />
-                <Route path="/login" component={SocialLogin} />
-                <Route component={BaseDashboard} />
+                <Route path="/dashboard" component={BaseDashboard} />
               </Switch>
             </Router>
           </Provider>
