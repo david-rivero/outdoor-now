@@ -1,0 +1,8 @@
+- react
+- react-dom
+- date-fns
+- react-social-login
+- react-redux
+- redux
+- react-router-dom
+- webpack
