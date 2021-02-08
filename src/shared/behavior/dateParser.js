@@ -1,5 +1,6 @@
-import moment from 'moment';
+import { format } from 'date-fns';
 
 export default function parseDate (date) {
-  return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+  const formatStr = 'MMMM Do YYYY, h:mm:ss a';
+  return format(date, formatStr);
 }
