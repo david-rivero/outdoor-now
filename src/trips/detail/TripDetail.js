@@ -11,9 +11,9 @@ import marker from '../../../shared/icons/maps-and-flags.svg';
 import flag from '../../../shared/icons/flag-map-marker.svg';
 import profile from '../../../shared/icons/users.svg';
 
-import './TripInfo.css';
+import './TripDetail.css';
 
-class TripInfo extends React.Component {
+class TripDetail extends React.Component {
   componentWillMount () {
     this.props.getDetailTrip(this.props.match.params.id);
   }
@@ -78,4 +78,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TripInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(TripDetail);

@@ -9,11 +9,11 @@ import TripForm from '../../components/trip-form/TripForm';
 import TripMembersAdd from '../../components/trip-members-add/TripMembersAdd';
 import TripLocationSetup from '../../components/trip-location-setup/TripLocationSetup';
 
-import './CreateTrip.css';
+import './AddTrip.css';
 
 import logo from '../../../shared/icons/outdoor-now.svg';
 
-class CreateTrip extends React.Component {
+class TripsCreate extends React.Component {
   componentWillMount () {
     this.props.instanciateTrip();
   }
@@ -81,4 +81,4 @@ function mapStateToProps (state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateTrip);
+export default connect(mapStateToProps, mapDispatchToProps)(TripsCreate);

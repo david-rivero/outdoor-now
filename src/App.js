@@ -4,9 +4,15 @@ import { Provider } from 'react-redux';
 
 import outdoorAppStore  from './stores/store';
 
-import BaseDashboard from './dashboard/views/BaseDashboard';
-import BaseTrip from './trips/views/BaseTrip';
-import SocialLogin from './auth/views/SocialLogin';
+import Home from './home/Home';
+import SocialLogin from './auth/SocialLogin';
+import HomeSignedIn from './dashboard/HomeSignedIn';
+import TripsCreate from './trips/add/AddTrip';
+import TripDetail from './trips/detail/TripDetail';
+import TripsList from './trips/list/TripsList';
+import AddFriend from './friends/add/AddFriend';
+import FriendDetail from './friends/detail/FriendDetail';
+import FriendsList from './friends/list/FriendsList';
 
 import './App.css';
 
@@ -17,9 +23,15 @@ class App extends Component {
         <Provider store={outdoorAppStore}>
           <Router>
             <Switch>
-              <Route exact path="/login" component={SocialLogin} />
-              <Route path="/trips" component={BaseTrip} />
-              <Route path="/dashboard" component={BaseDashboard} />
+              <Route path="/home" component={Home} />
+              <Route path="/login" component={SocialLogin} />
+              <Route path="/dashboard" component={HomeSignedIn} />
+              <Route exact path="/trips/create" component={TripsCreate} />
+              <Route exact path="/trips/:id" component={TripDetail} />
+              <Route path="/trips" component={TripsList} />
+              <Route exact path="/friends/add" component={AddFriend} />
+              <Route exact path="/friends/:id" component={FriendDetail} />
+              <Route path="/friends" component={FriendsList} />
             </Switch>
           </Router>
         </Provider>
