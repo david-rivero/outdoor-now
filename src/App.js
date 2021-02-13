@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import outdoorAppStore  from './stores/store';
+import outdoorAppStore  from './store/store';
 
 import Home from './home/Home';
 import SocialLogin from './auth/SocialLogin';
@@ -22,9 +22,9 @@ class App extends Component {
       <div className="App">
         <Provider store={outdoorAppStore}>
           <Router>
+            <Redirect to="/login" />
             <Switch>
-              <Route path="/home" component={Home} />
-              <Route path="/login" component={SocialLogin} />
+              <Route exact path="/login" component={SocialLogin} />
               <Route path="/dashboard" component={HomeSignedIn} />
               <Route exact path="/trips/create" component={TripsCreate} />
               <Route exact path="/trips/:id" component={TripDetail} />
@@ -32,6 +32,7 @@ class App extends Component {
               <Route exact path="/friends/add" component={AddFriend} />
               <Route exact path="/friends/:id" component={FriendDetail} />
               <Route path="/friends" component={FriendsList} />
+              <Route path="/" component={Home} />
             </Switch>
           </Router>
         </Provider>

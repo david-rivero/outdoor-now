@@ -1,23 +1,16 @@
 .social-login-view {
-  margin-top: 120px;
+  padding: 50px;
 }
 
-.social-login-item {
-  margin: 15px auto;
-  max-width: 20vw;
+.social-login-logo {
+  margin-bottom: 100px;
 }
 
-.social-login-item button, .social-login-item .kep-login-facebook {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
-  border-radius: 4px !important;
-  font-size: 16px;
-  padding: 10px 0;
-  text-transform: none;
-  cursor: pointer;
+.social-login-buttons {
+  display: flex;
+  flex-direction: column;
 }
 
-.social-login-message-fail {
-  color: red;
-  font-size: 10px;
+.social-login-button {
+  margin: 0.75rem;
 }

@@ -1,101 +1,70 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import config from '../shared/config';
 
-import login from '../actions/login';
-import updateLoginStatus from '../actions/updateLoginStatus';
-
-import config from '../../shared/config';
+import { GoogleSocialButton } from './components/SocialButton';
 
 import './SocialLogin.css';
+import logo from '../shared/icons/outdoor-now-full.svg';
 
 class SocialLogin extends React.Component {
-  componentWillMount() { }
+  state = {
+    enableRedirect: false,
+    currentProvider: ''
+  };
+  nodes = {};
 
-  componentDidMount () { }
+  setNodeRef = (provider, node) => {
+    if (node) {
+      this.nodes[provider] = node;
+    }
+  }
 
-  successLogin (loginFrom, resp) {
-    this.props.login({...resp});
-    this.props.updateLoginStatus({
-      successRedirect: true,
-      failureRedirect: false,
-      clientLogin: loginFrom
+  handleSocialLogin = (r) => {
+    console.log(r);
+    this.setState({
+      enableRedirect: true
     });
   }
 
-  failureLogin (loginFrom, e) {
-    this.props.updateLoginStatus({
-      successRedirect: false,
-      failureRedirect: true,
-      clientLogin: loginFrom
+  handleSocialLoginFailure = err => {
+    console.error(err)
+  }
+
+  componentWillUnmount = () => {
+    this.setState({
+      enableRedirect: false
     });
   }
 
-  render () {
-    let googleBtnStyle = {
-      display: 'inline-block',
-      background: 'rgb(209, 72, 54)',
-      color: 'rgb(255, 255, 255)',
-      width: '100%',
-      paddingTop: '10px',
-      paddingBottom: '10px',
-      borderRadius: '2px',
-      border: '1px solid transparent',
-      fontSize: '16px',
-      fontWeight: 'bold'
-    };
-
-    return (
+  render() {
+    const redirectDef = <Redirect to="/dashboard" />;
+    const layoutRender = (
       <div className="social-login-view">
-        <h3>Sign In</h3>
-        <div className="social-login-item">
-          <FacebookLogin
-            appId={config.FACEBOOK_API_KEY}
-            autoLoad={true}
-            fields="name,email,picture"
-            callback={(e) => this.successLogin('FACEBOOK', e)} />
+        <div className="social-login-logo">
+          <img src={logo} alt="Outdoor Now" />
+          <p>Plan your trip, explore and share</p>
         </div>
-        <div className="social-login-item">
-          <GoogleLogin
-            clientId={config.GOOGLE_SIGN_IN_KEY}
-            buttonText="Login with Google"
-            style={googleBtnStyle}
-            onSuccess={(e) => this.successLogin('GOOGLE', e)}
-            onFailure={(e) => this.failureLogin('GOOGLE', e)}
-          />
+        <div className="social-login-buttons">
+          <GoogleSocialButton className="social-login-button"
+                              provider="google"
+                              appId={config.GOOGLE_SIGN_IN_KEY}
+                              onLoginSuccess={this.handleSocialLogin}
+                              onLoginFailure={this.handleSocialLoginFailure}
+                              getInstance={this.setNodeRef('google')}
+                              key={'google'}
+                              scope={'https://www.googleapis.com/auth/user.gender.read'} />
         </div>
-        <div className="social-login-message-fail">
-          {
-            this.props.loginStatus.failureRedirect &&
-            (
-              <p>There was an error with { this.props.loginStatus.clientLogin } login. Please try again.</p>
-            )
-          }
-        </div>
-        {
-          this.props.loginStatus.successRedirect &&
-          <Redirect to="/dashboard/trips" />
-        }
       </div>
     );
+
+    if (this.state.enableRedirect) {
+      return redirectDef;
+    }
+    return layoutRender;
   }
 }
 
-function mapDispatchToProps (dispatch) {
-  return {
-    login: bindActionCreators(login, dispatch),
-    updateLoginStatus: bindActionCreators(updateLoginStatus, dispatch)
-  }
-}
+export default SocialLogin;
 
-function mapStateToProps (state) {
-  return {
-    loginStatus: state.profiles.loginStatus
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SocialLogin);
